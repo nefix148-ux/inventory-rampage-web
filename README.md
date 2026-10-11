@@ -1,17 +1,17 @@
 # Inventory Rampage Web
 
-Find Good Set с полной базой предметов, иконками, чёрным списком и фильтрами.
+**Репозиторий:** https://github.com/nefix148-ux/inventory-rampage-web
 
 ## Render
 
-**Publish Directory:** `.` (корень репозитория)
+- **Publish Directory:** `.` (корень)
+- Build: пусто
 
-Build Command: пусто
+## Полный пакет (каталог + 576 спрайтов)
 
-## Локально
+Из-за лимитов API бинарные спрайты лучше залить одним zip с ПК:
 
-```bash
-python3 -m http.server 8080
-```
+1. Скачай полный архив (если есть) или клонируй и добавь папку `sprites/` + `data/catalog-*.js`
+2. `git add -A && git commit -m "sprites" && git push`
 
-Открой http://localhost:8080
+Классы, тоники, элементы и часть предметов уже в репо.
