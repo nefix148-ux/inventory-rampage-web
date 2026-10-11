@@ -1,17 +1,36 @@
-# Inventory Rampage Web
+# Inventory Rampage Web — Find Good Set
 
-**Репозиторий:** https://github.com/nefix148-ux/inventory-rampage-web
+https://github.com/nefix148-ux/inventory-rampage-web
 
-## Render
+## Что работает
 
-- **Publish Directory:** `.` (корень)
-- Build: пусто
+- Полный каталог предметов (~369) с русскими названиями
+- Классы, тоники, элементы
+- Чёрный список (предметы / тоники / классы / элементы) + удаление
+- Поиск с подсказками (например «катак» → Доспех Катаклизма)
+- Фильтры min–max: урон, броня, скорость, импульс прыжка, радиус взрыва, скорость снаряда
+- Worker поиска лучших сетов
 
-## Полный пакет (каталог + 576 спрайтов)
+## Render (Static Site)
 
-Из-за лимитов API бинарные спрайты лучше залить одним zip с ПК:
+- **Publish Directory:** `.` (корень репозитория)
+- Build Command: *пусто*
 
-1. Скачай полный архив (если есть) или клонируй и добавь папку `sprites/` + `data/catalog-*.js`
-2. `git add -A && git commit -m "sprites" && git push`
+После деплоя обнови страницу (Ctrl+F5).
 
-Классы, тоники, элементы и часть предметов уже в репо.
+## Иконки (sprites)
+
+Папка `sprites/` пока не в git (бинарники). Чтобы добавить:
+
+1. Скачай полный zip из чата или собери локально
+2. Скопируй `sprites/` в корень репо
+3. `git add sprites && git commit -m "sprites" && git push`
+
+Без спрайтов сайт работает, но вместо картинок — placeholder / текст.
+
+## Локально
+
+```bash
+python3 -m http.server 8080
+# http://localhost:8080
+```
