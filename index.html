@@ -10,7 +10,7 @@
   <div id="app">
     <header class="topbar">
       <div class="logo-row">
-        <img class="logo-img" src="sprites/sdroimod-logo.webp" alt="" onerror="this.style.display='none'" />
+        <img class="logo-img" src="sprites/sdroimod-logo.webp" alt="" onerror="this.style.display='none'" id="logoImg" />
         <div>
           <div class="logo">Inventory Rampage</div>
           <div class="logo-sub">Find Good Set</div>
@@ -80,6 +80,21 @@
   <script src="data/catalog-items-22.js"></script>
   <script src="data/catalog-items-23.js"></script>
   <script src="data/catalog-items-24.js"></script>
+  <script src="data/sprites-map-1.js"></script>
+  <script>
+  window.IR_SPRITES_READY = (function () {
+    var loads = [];
+    for (var i = 2; i <= 30; i++) {
+      loads.push(new Promise(function (resolve) {
+        var s = document.createElement('script');
+        s.src = 'data/sprites-map-' + i + '.js';
+        s.onload = s.onerror = function () { resolve(); };
+        document.head.appendChild(s);
+      }));
+    }
+    return Promise.all(loads);
+  })();
+  </script>
   <script src="app.js"></script>
 </body>
 </html>
