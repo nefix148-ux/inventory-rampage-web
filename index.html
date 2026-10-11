@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Inventory Rampage</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div class="logo-row">
+        <img class="logo-img" src="sprites/sdroimod-logo.webp" alt="" onerror="this.style.display='none'" />
+        <div>
+          <div class="logo">Inventory Rampage</div>
+          <div class="logo-sub">Find Good Set</div>
+        </div>
+      </div>
+      <nav class="tabs">
+        <button type="button" class="tab active" data-tab="find">Поиск</button>
+        <button type="button" class="tab" data-tab="blacklist">Чёрный список</button>
+        <button type="button" class="tab" data-tab="filters">Фильтры</button>
+      </nav>
+    </header>
+    <main class="content">
+      <section id="tab-find" class="panel active">
+        <div class="mode-row">
+          <button type="button" class="mode-btn active" data-mode="damage">⚔️ Урон</button>
+          <button type="button" class="mode-btn" data-mode="armor">🛡️ Броня</button>
+        </div>
+        <div class="options-row">
+          <label>Топ <input type="number" id="topN" value="20" min="1" max="50" /></label>
+          <label class="chk"><input type="checkbox" id="includeUpcoming" checked /> Upcoming</label>
+        </div>
+        <button type="button" id="btnSearch" class="btn-primary">Найти лучшие сеты</button>
+        <div id="status" class="status" hidden></div>
+        <div id="results" class="results"></div>
+      </section>
+      <section id="tab-blacklist" class="panel">
+        <div class="bl-cats">
+          <button type="button" class="bl-cat active" data-bl="items">Предметы</button>
+          <button type="button" class="bl-cat" data-bl="tonics">Тоники</button>
+          <button type="button" class="bl-cat" data-bl="classes">Классы</button>
+          <button type="button" class="bl-cat" data-bl="elements">Элементы</button>
+        </div>
+        <div class="search-wrap">
+          <input type="search" id="blSearch" placeholder="Поиск: катак → Доспех Катаклизма" autocomplete="off" />
+        </div>
+        <div class="selected-tags" id="selectedTags"></div>
+        <div class="picker" id="picker"></div>
+      </section>
+      <section id="tab-filters" class="panel">
+        <div id="filtersList" class="filters-list"></div>
+        <p class="hint">Пустое поле = без ограничения. В чёрном списке листай и нажимай на предметы.</p>
+      </section>
+    </main>
+  </div>
+  <script src="data/catalog-embed.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
